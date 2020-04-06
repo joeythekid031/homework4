@@ -7,6 +7,7 @@ var a3El = document.querySelector("#a3");
 var a4El = document.querySelector("#a4");
 var myBtn = document.querySelector(".mybtn");
 var timeEl = document.querySelector("#time")
+var highScore = document.querySelector(".high-scores");
 
 
 
@@ -38,9 +39,6 @@ startEl.addEventListener("click", function render() {
     var op3 = qanda[questionsIndex][4];
     var op4 = qanda[questionsIndex][5];
 
-    if (qanda[0] === qanda.length) {
-        return
-    }
 
     questionsEl.textContent = qs;
     a1El.textContent = op1;
@@ -51,28 +49,51 @@ startEl.addEventListener("click", function render() {
     var timePer= 15;
     var totalTime = 60;
 
-    function timer(15){
+    function timer(){
         setInterval(() => {
         
             render()
 
-        }, 1000);
+        }, 15000);
     }
 
+    function timer2(){
+        setInterval(() => {
+            var intials = prompt ("enter your intials");
+            highScore = intials + "remaining time"
+
+        }, 60000);
+    }
+
+    // var intials = prompt ("enter your intials");
     timer()
+    timer2()
+    myBtn.addEventListener("click", function selected(){
+        if (document.getElementById.val === qanda[questionsIndex] [-1]) {
+            correct++;
+        } else {
+           wrong++ 
+        }
+      timer() 
+      render()
+      
+    })
+
+
 })
 
 // I need to get my render call to work but i am running out of time so i will come back to this
 // if the selection is correct take the remaing time and add it back to a total count time aka score
-myBtn.addEventListener("click", function selected(){
-    if (document.getElementById.val === qanda[questionsIndex] [-1]) {
-        correct++;
-    } else {
-       wrong++ 
-    }
-  timer()  
+// myBtn.addEventListener("click", function selected(){
+//     if (document.getElementById.val === qanda[questionsIndex] [-1]) {
+//         correct++;
+//     } else {
+//        wrong++ 
+//     }
+//   timer() 
+//   render()
   
-})
+// })
 
 // });
 // function timer(timePer){
